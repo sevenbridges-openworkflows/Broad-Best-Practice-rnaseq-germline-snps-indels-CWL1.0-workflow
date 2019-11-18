@@ -4,7 +4,7 @@ This workflow represents the GATK Best Practices for SNP and INDEL calling on RN
 
 Starting from an unmapped BAM file, it performs alignment to the reference genome, followed by marking duplicates, reassigning mapping qualities, base recalibration, variant calling and variant filtering. On the [GATK website](https://software.broadinstitute.org/gatk/documentation/article.php?id=3891), you can find more detailed information about calling variants in RNA-Seq.
 
-###Common Use Cases
+### Common Use Cases
 - If you have raw sequencing reads in FASTQ format, you should convert them to an unmapped BAM file using the **Picard FastqToSam** app before running the workflow.
 - **BaseRecalibrator** uses **Known indels** and **Known SNPs** databases to mask out polymorphic sites when creating a model for adjusting quality scores. Also, the **HaplotypeCaller** uses the **Known SNPs** database to populate the ID column of the VCF output.
 - The **HaplotypeCaller** app uses **Intervals list** to restrict processing to specific genomic intervals. You can set the **Scatter count** value in order to split **Intervals list** into smaller intervals. **HaplotypeCaller** processes these intervals in parallel, which will significantly reduce workflow execution time  in some cases.
@@ -12,18 +12,18 @@ Starting from an unmapped BAM file, it performs alignment to the reference genom
 - **Running a batch task**: Batching is performed by **Sample ID** metadata field on the **Unmapped BAM** input port. For running analyses in batches, it is necessary to set **Sample ID** metadata for each unmapped BAM file.
 
 
-###Changes Introduced by Seven Bridges
+### Changes Introduced by Seven Bridges
 This workflow represents the GATK Best Practices for SNP and indel calling on RNA-Seq data, and there are no modifications to the original workflow.
 
 
-###Common Issues and Important Notes
+### Common Issues and Important Notes
 - As the *(--known-sites)* is the required option for GATK BaseRecalibrator tool, it is necessary to provide at least one database file to the **Known INDELs** or **Known SNPs** input port.
 - If you are providing pre-generated STAR reference index make sure it is created using the adequate version of STAR (check the STAR version in the original [WDL file](https://github.com/gatk-workflows/gatk3-4-rnaseq-germline-snps-indels/blob/master/rna-germline-variant-calling.wdl)).
 - When converting FASTQ files to an unmapped BAM file using **Picard FastqToSam**, it is required to set the **Platform** (`PLATFORM=`) parameter.
 - This workflow allows you to process one sample per task execution. If you are planning to process more than one sample, it is required to run multiple task executions in batch mode. More about batch analyses can be found [here](https://docs.sevenbridges.com/docs/about-batch-analyses).
  
 
-###Performance Benchmarking
+### Performance Benchmarking
 The default memory and CPU requirements for each app in the workflow are the same as in the original [GATK Best Practices WDL](https://github.com/gatk-workflows/gatk3-4-rnaseq-germline-snps-indels/blob/master/rna-germline-variant-calling.wdl). You can change the default runtime requirements for **STAR GenomeGenerate** and **STAR Align** apps. 
 
 | Experiment type |  Input size | Paired-end | # of reads | Read length | Duration |  AWS Instance Cost (spot) | AWS Instance Cost (on-demand) | 
@@ -34,7 +34,7 @@ The default memory and CPU requirements for each app in the workflow are the sam
 |     RNA-Seq     | 12.9 GB |     Yes    |     164M    |     101     |  12h4min  | 3.30$ | 6.99$ |
 
 
-###API Python Implementation
+### API Python Implementation
 The workflow's draft task can also be submitted via the API. To learn how to get your Authentication token and API endpoint for the corresponding platform, visit our [documentation](https://github.com/sbg/sevenbridges-python#authentication-and-configuration).
 ```python
 from sevenbridges import Api
