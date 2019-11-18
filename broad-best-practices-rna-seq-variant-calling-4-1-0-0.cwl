@@ -22,7 +22,7 @@ doc: >-
   you can find more detailed information about calling variants in RNA-Seq.
 
 
-  ###Common Use Cases
+  ### Common Use Cases
 
   - If you have raw sequencing reads in FASTQ format, you should convert them to
   an unmapped BAM file using the **Picard FastqToSam** app before running the
@@ -48,14 +48,14 @@ doc: >-
 
 
 
-  ###Changes Introduced by Seven Bridges
+  ### Changes Introduced by Seven Bridges
 
   This workflow represents the GATK Best Practices for SNP and indel calling on
   RNA-Seq data, and there are no modifications to the original workflow.
 
 
 
-  ###Common Issues and Important Notes
+  ### Common Issues and Important Notes
 
   - As the *(--known-sites)* is the required option for GATK BaseRecalibrator
   tool, it is necessary to provide at least one database file to the **Known
@@ -75,7 +75,7 @@ doc: >-
   [here](https://docs.sevenbridges.com/docs/about-batch-analyses).
    
 
-  ###Performance Benchmarking
+  ### Performance Benchmarking
 
   The default memory and CPU requirements for each app in the workflow are the
   same as in the original [GATK Best Practices
@@ -103,7 +103,7 @@ doc: >-
 
 
 
-  ###API Python Implementation
+  ### API Python Implementation
 
   The workflow's draft task can also be submitted via the API. To learn how to
   get your Authentication token and API endpoint for the corresponding platform,
@@ -143,7 +143,7 @@ doc: >-
   task = api.tasks.create(name='GATK4 RNA-Seq Workflow - API Example',
   project=project_id, app=workflow_id, inputs=inputs, run=False)
 
-  #For running a batch task
+  # For running a batch task
 
   task = api.tasks.create(name='GATK4 RNA-Seq Workflow - API Batch Example',
   project=project_id, app=workflow_id, inputs=inputs, run=False,
