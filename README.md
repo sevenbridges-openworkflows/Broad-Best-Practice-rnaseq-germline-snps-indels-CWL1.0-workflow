@@ -1,4 +1,4 @@
-# Broad-Best-Practice-rnaseq-germline-snps-indels-CWL1.0-workflow
+### Description
 
 This workflow represents the GATK Best Practices for SNP and INDEL calling on RNA-Seq data. 
 
