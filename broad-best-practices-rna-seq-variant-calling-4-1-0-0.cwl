@@ -1,11 +1,11 @@
 dct:creator:
-    "@id": "sbg"
-    foaf:name: SevenBridges
-    foaf:mbox: "mailto:support@sbgenomics.com"
+  "@id": "sbg"
+  foaf:name: SevenBridges
+  foaf:mbox: "mailto:support@sbgenomics.com"
 $namespaces:
-    sbg: https://sevenbridges.com
-    dct: http://purl.org/dc/terms/
-    foaf: http://xmlns.com/foaf/0.1/
+  sbg: https://sevenbridges.com
+  dct: http://purl.org/dc/terms/
+  foaf: http://xmlns.com/foaf/0.1/
 class: Workflow
 cwlVersion: v1.0
 id: >-
